@@ -6,9 +6,13 @@ public abstract class Armas : MonoBehaviour
 {
     [SerializeField] Bullet bulletPrefab;
 
-    public virtual void Disparar(Transform spawn)
+    protected virtual void Disparar(Transform spawn)
     {
         Bullet projectile = Instantiate(bulletPrefab, spawn.position, transform.rotation);
-        projectile.LaunchBullet(transform.right);
+        projectile.LaunchBullet(transform.up);
     }
+
+
+
+    //recibir daño (jugador, obstaculo, enemigo)
 }

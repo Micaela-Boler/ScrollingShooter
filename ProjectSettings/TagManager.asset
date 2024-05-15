@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Jugador
   - PowerUp
+  - Obstaculo
   layers:
   - Default
   - TransparentFX
