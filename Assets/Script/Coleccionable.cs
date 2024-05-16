@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Coleccionable : MonoBehaviour
 {
-   // public GameManager actualizarPuntaje;
-    [SerializeField] int cantidadDePuntos;
+    public GameManager actualizarPuntaje;
+    [SerializeField] int puntosGanados;
 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Jugador"))
         {
-            //actualizarPuntaje.actualizarPuntos(cantidadDePuntos);
-            Destroy(this.gameObject);
+            actualizarPuntaje.ActualizarPuntos(puntosGanados);
+            Destroy(gameObject);
         }
     }
 }

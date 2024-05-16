@@ -7,6 +7,8 @@ TagManager:
   - Jugador
   - PowerUp
   - Obstaculo
+  - BalaJugador
+  - BalaEnemiga
   layers:
   - Default
   - TransparentFX

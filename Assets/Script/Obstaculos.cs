@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Obstaculos : MonoBehaviour
 {
+    [Header("MOVIMIENTO")]
     [SerializeField] float velocidad;
     [SerializeField] float tiempoVivo = 0f;
     [SerializeField] float tiempoMaximo = 10f;
+
 
 
     void Update()
@@ -14,6 +16,7 @@ public class Obstaculos : MonoBehaviour
         transform.position -= new Vector3(velocidad * Time.deltaTime, 0, 0);
 
         tiempoVivo += Time.deltaTime;
+
 
         if (tiempoMaximo <= tiempoVivo)
             Destroy(this.gameObject);
