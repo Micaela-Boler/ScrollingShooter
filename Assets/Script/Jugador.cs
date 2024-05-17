@@ -7,17 +7,19 @@ using UnityEngine;
 public class Jugador : jugadorYEnemigos
 {
 
-    [Header("SPAWN DE BALAS")]
+    [Header("DISPARAR")]
 
     [SerializeField] GameObject spawnSecundario;
 
     [SerializeField] GameObject spawnSecundarioA;
 
+    [SerializeField] Transform spawnPrincipal;
+
     [SerializeField] bool disparoCooldown;
 
     [SerializeField] float segundosParaDisparar;
 
-    [SerializeField] Transform spawnPrincipal;
+    [SerializeField] AudioSource audio;
 
 
     [Header("VIDA")]
@@ -44,6 +46,7 @@ public class Jugador : jugadorYEnemigos
     {
         Disparar(spawn, transform.right);
         disparoCooldown = false;
+        audio.Play();
 
         yield return new WaitForSeconds(segundosParaDisparar);
 

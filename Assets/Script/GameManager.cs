@@ -7,14 +7,12 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-
+    [Header("VIDA")]
     [SerializeField] List<GameObject> vidas = new List<GameObject>();
 
-    [SerializeField] TextMeshProUGUI texto;
-    int puntos;
 
 
-
+    //Vida
     public void CambiarCorazon(int indice)
     {
         GameObject imagenCorazon = vidas[indice];
@@ -22,21 +20,10 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void ActualizarPuntos(int puntosGanados)
-    {
-        puntos += puntosGanados;
-        texto.text = puntos.ToString();
-    }
-
-
+    //Cambiar escena
     public void CambiarEscena(int escena)
     {
         SceneManager.LoadScene(escena);
     }
 
-
-    // SI MATAMOS 10 ENEMIGOS APARECE EL JEFE
-    // O PODEMOS HACER UN TIMER PARA QUE APAREZCA
-
-    // IF (EL OBJETO"JEFE" ES NULO) GANAR LA PARTIDA
 }

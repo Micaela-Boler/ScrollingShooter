@@ -5,14 +5,22 @@ using UnityEngine;
 
 public class AtaqueEnemigo : jugadorYEnemigos
 {
+    [Header("DISPARO")]
     [SerializeField] Transform spawnMisil;
     [SerializeField] float cooldownDeDisparo;
+    [SerializeField] float empezarADisparar = 1;
+
+    [Header("RECIBIR DAÑO")]
+    [SerializeField] float tiempoParaDestruirse = 0;
+    [SerializeField] ParticleSystem particulas;
+    [SerializeField] AudioSource audio;
+
 
 
     //Disparar
     void Start()
     {
-        InvokeRepeating("DisparoEnemigo", 1, cooldownDeDisparo);
+        InvokeRepeating("DisparoEnemigo", empezarADisparar, cooldownDeDisparo);
     }
 
 
@@ -31,10 +39,15 @@ public class AtaqueEnemigo : jugadorYEnemigos
         if (collision.gameObject.CompareTag("BalaJugador") || collision.gameObject.CompareTag("Jugador"))
         {
             RecibirDaño();
+            particulas.Play();
             animator.SetBool("SaludBaja", true);
 
+
             if (vida <= 0)
-                Destroy(gameObject);
+            {
+                audio.Play();
+                Destroy(gameObject, tiempoParaDestruirse);
+            }
         }
     }
 }

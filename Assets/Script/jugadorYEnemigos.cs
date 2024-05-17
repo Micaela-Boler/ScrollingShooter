@@ -11,7 +11,7 @@ public abstract class jugadorYEnemigos : MonoBehaviour
 
     [Header("RECIBIR DAÑO")]
 
-    [SerializeField] protected int vida;
+    [SerializeField] public int vida;
 
     [SerializeField] protected int daño;
 
@@ -22,7 +22,7 @@ public abstract class jugadorYEnemigos : MonoBehaviour
 
 
 
-    protected virtual void Disparar(Transform spawn, Vector2 direccion)
+    public virtual void Disparar(Transform spawn, Vector2 direccion)
     {
         Bala projectile = Instantiate(bulletPrefab, spawn.position, transform.rotation);
         projectile.LaunchBullet(direccion);
